@@ -106,7 +106,7 @@ module Webflow
     end
 
     def update_item_inventory(collection_id, item_id, data)
-      patch("/collections/#{collection_id}/items/#{item_id}/inventory", )
+      patch("/collections/#{collection_id}/items/#{item_id}/inventory", {fields: data})
     end
 
     def delete_item(item)
