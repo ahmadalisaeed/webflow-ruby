@@ -50,6 +50,11 @@ module Webflow
       get("/collections/#{collection_id}")
     end
 
+    def all_items(collection_id)
+      resp = get("/collections/#{collection_id}/items")
+      items(collection_id, resp['total'])
+    end
+
 
     # https://developers.webflow.com/?javascript#get-all-items-for-a-collection
     # returns json object with data to help paginate collection
@@ -100,6 +105,10 @@ module Webflow
       put("/collections/#{item['_cid']}/items/#{item['_id']}", {fields: base.merge(data)}, live: live)
     end
 
+    def update_item_inventory(collection_id, item_id, data)
+      patch("/collections/#{collection_id}/items/#{item_id}/inventory", )
+    end
+
     def delete_item(item)
       delete("/collections/#{item['_cid']}/items/#{item['_id']}")
     end
@@ -118,6 +127,11 @@ module Webflow
     def put(path, data, live: nil)
       params = { live: 'true' } if live
       request(path, method: :put, params: params, data: data)
+    end
+
+    def patch(path, data)
+      params = nil
+      request(path, method: :patch, params: params, data: data)
     end
 
     def delete(path)
