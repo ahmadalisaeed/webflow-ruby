@@ -52,7 +52,7 @@ module Webflow
 
     def all_items(collection_id)
       resp = get("/collections/#{collection_id}/items")
-      items(collection_id, resp['total'])
+      items(collection_id, limit: resp['total']+10)
     end
 
 
