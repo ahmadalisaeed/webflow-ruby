@@ -10,6 +10,6 @@ module Webflow
   end
 
   class Config
-    attr_accessor :api_token
+    attr_accessor :api_token, :other_attrs
   end
 end
