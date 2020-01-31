@@ -105,6 +105,10 @@ module Webflow
       put("/collections/#{item['_cid']}/items/#{item['_id']}", {fields: base.merge(data)}, live: live)
     end
 
+    def inventory(collection_id, item_id)
+      get("/collections/#{collection_id}/items/#{item_id}/inventory")
+    end
+
     def update_item_inventory(collection_id, item_id, data)
       patch("/collections/#{collection_id}/items/#{item_id}/inventory", {fields: data})
     end
