@@ -46,6 +46,16 @@ module Webflow
       get("/sites/#{site_id}/collections")
     end
 
+    def orders(site_id, status: nil per_page: 100, page: 1)
+      params = { limit: per_page, offset: per_page * (page - 1) }
+      params[status:] = status if status
+      get("/sites/#{site_id}/orders", params)
+    end
+
+    def order(site_id, order_id)
+      get("/sites/#{site_id}/orders/order_id")
+    end
+
     def collection(collection_id)
       get("/collections/#{collection_id}")
     end
