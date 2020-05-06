@@ -48,7 +48,7 @@ module Webflow
 
     def orders(site_id, status: nil, per_page: 100, page: 1)
       params = { limit: per_page, offset: per_page * (page - 1) }
-      params[status:] = status if status
+      params[:status] = status if status
       get("/sites/#{site_id}/orders", params)
     end
 
