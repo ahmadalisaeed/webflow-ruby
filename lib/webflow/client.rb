@@ -56,7 +56,7 @@ module Webflow
     end
 
     def order(site_id, order_id)
-      get("/sites/#{site_id}/orders/#{order_id}")
+      get("/sites/#{site_id}/order/#{order_id}")
     end
 
     def collection(collection_id)
